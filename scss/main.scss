@@ -1,0 +1,405 @@
+#clock {
+  padding-top: 100px;
+  padding-left: 150px;
+  width: 250px;
+  float: left;
+}
+
+@font-face {
+  font-family: 'Architects Daughter';
+  src: url('../fonts/ArchitectsDaughter.eot');
+  src: local('Architects Daughter'), local('ArchitectsDaughter'),
+    url('../fonts/ArchitectsDaughter.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ArchitectsDaughter.woff2') format('woff2'),
+    url('../fonts/ArchitectsDaughter.woff') format('woff'),
+    url('../fonts/ArchitectsDaughter.ttf') format('truetype'),
+    url('../fonts/ArchitectsDaughter.svg#ArchitectsDaughter') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+
+@-webkit-keyframes rotation {
+  from { -webkit-transform: rotate(0deg); }    
+  to { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes rotation {
+  from { -moz-transform: rotate(0deg); }    
+  to { -moz-transform: rotate(360deg); }
+}
+
+@-o-keyframes rotation {
+  from { -o-transform: rotate(0deg); }    
+  to { -o-transform: rotate(360deg); }
+}
+
+@keyframes rotation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+
+
+
+@-webkit-keyframes rotationz {
+  from { -webkit-transform: rotate(0deg); }    
+  to { -webkit-transform: rotate(-360deg); }
+}
+
+@-moz-keyframes rotationz {
+  from { -moz-transform: rotate(0deg); }    
+  to { -moz-transform: rotate(-360deg); }
+}
+
+@-o-keyframes rotationz {
+  from { -o-transform: rotate(0deg); }    
+  to { -o-transform: rotate(-360deg); }
+}
+
+@keyframes rotationz {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+
+
+
+
+
+
+.clock-case {
+  background-color: #62696F;
+  padding: 2%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+ }
+
+.clock-dial_fr {
+  
+ background-image: linear-gradient(0deg, #002395 33%, #ffffff 33%, #ffffff 66%, #ed2939 66%);
+   position: relative;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  
+}
+
+.clock-dial_jp {
+  
+
+ background-image: -webkit-gradient(radial, 120 120, 0, 120 120, 60, color-stop(0.98, #d60818), color-stop(0.99, #ffffff));
+   position: relative;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  
+}
+
+.clock-dial_ru {
+  
+
+ background-image: linear-gradient(-90deg, #ffffff 33%, #0000ff 33%, #0000ff 66%, #ff0000 66%);
+   position: relative;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  
+}
+
+
+.clock-dial_ir {
+
+ background-image: linear-gradient(0deg, #009a49 33%, #ffffff 33%, #ffffff 66%, #ff7900 66%);
+   position: relative;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  
+}
+
+
+.clock-ratio {
+  padding-bottom: 100%;
+  height: 0;
+  overflow: hidden;
+}
+
+.clock-nut {
+  position: absolute;
+  top: 46%;
+  left: 46%;
+  width: 8%;
+  height: 8%;
+  background-color: #544A4A;
+  border: 2px solid #000000;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+
+
+ul {
+padding: 0;
+margin:0;
+}
+
+
+#clock {
+  .minute-marks li {
+  display:block;
+  position:absolute;
+   width: 4px;
+  height: 4px;
+  background:#000000;
+  top:52.4%; left:50%;
+  margin:-.5em 0 0 -.1em;
+}
+}
+
+#clock .minute-marks li:first-child {transform:rotate(6deg) translateY(-118px)}
+
+$elements: 60;
+@for $i from 2 to $elements {
+  #clock { .minute-marks { li:nth-child(#{$i}) {
+    transform:rotate(6 *$i + deg) translateY(-118px);
+  }
+}
+}
+}
+
+$hours: 5 10 15 20 25 30 35 40 45 50 55 60;
+
+@for $i from 1 through length($hours) {
+  
+  #clock { .minute-marks {
+  
+ li:nth-child(#{nth($hours, $i)}) {
+  display: none;
+}
+
+}
+
+}
+}
+
+
+#clock {
+  .digits li {
+  font-size:14px;
+  display:block;
+  width:1.8em;
+  height:1.8em;
+  position:absolute;
+  top:50%; left:50%;
+  line-height:1.6em;
+  text-align:center;
+  margin:-.8em 0 0 -.8em;
+  font-weight:bold;
+  font-family: 'Architects Daughter',Arial,sans-serif;
+}
+}
+
+#clock .digits li:nth-child(1) { transform:translate(3.9em, -6.9em) }
+#clock .digits li:nth-child(2) { transform:translate(6.9em, -4em) }
+#clock .digits li:nth-child(3) { transform:translate(8em, 0) }
+#clock .digits li:nth-child(4) { transform:translate(6.8em, 4em) }
+#clock .digits li:nth-child(5) { transform:translate(3.9em, 6.9em) }
+#clock .digits li:nth-child(6) { transform:translate(0, 8em) }
+#clock .digits li:nth-child(7) { transform:translate(-3.9em, 6.9em) }
+#clock .digits li:nth-child(8) { transform:translate(-6.8em, 4em) }
+#clock .digits li:nth-child(9) { transform:translate(-8em, 0) }
+#clock .digits li:nth-child(10) { transform:translate(-6.9em, -4em) }
+#clock .digits li:nth-child(11) { transform:translate(-3.9em, -6.9em) }
+#clock .digits li:nth-child(12) { transform:translate(0, -8em) }
+
+
+
+.minutes-container, .hours-container, .seconds-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.hours {
+  background: #000;
+  height: 20%;
+  left: 48.75%;
+  position: absolute;
+  top: 30%;
+  transform-origin: 50% 100%;
+  width: 2.5%;
+    -webkit-animation: rotation 43200s infinite linear;
+  -moz-animation: rotation 43200s infinite linear;
+  -o-animation: rotation 43200s infinite linear;
+  animation: rotation 43200s infinite linear;
+  
+}
+
+.hours-jp {
+  background: #000;
+  height: 20%;
+  left: 48.75%;
+  position: absolute;
+  top: 30%;
+  transform-origin: 50% 100%;
+  width: 2.5%;
+    -webkit-animation: rotation 43200s infinite linear;
+  -moz-animation: rotation 43200s infinite linear;
+  -o-animation: rotation 43200s infinite linear;
+  animation: rotation 43200s infinite linear;
+  border:0.5px solid white;
+  border-radius:1em;
+}
+
+
+.hours-fr {
+  background: #000;
+  height: 20%;
+  left: 48.75%;
+  position: absolute;
+  top: 30%;
+  transform-origin: 50% 100%;
+  width: 2.5%;
+    -webkit-animation: rotation 43200s infinite linear;
+  -moz-animation: rotation 43200s infinite linear;
+  -o-animation: rotation 43200s infinite linear;
+  animation: rotation 43200s infinite linear;
+  border:0.5px solid white;
+  border-radius:1em;
+  
+}
+
+.hours-ru {
+  background: #000;
+  height: 20%;
+  left: 48.75%;
+  position: absolute;
+  top: 30%;
+  transform-origin: 50% 100%;
+  width: 2.5%;
+    -webkit-animation: rotation 43200s infinite linear;
+  -moz-animation: rotation 43200s infinite linear;
+  -o-animation: rotation 43200s infinite linear;
+  animation: rotation 43200s infinite linear;
+   border:0.5px solid white;
+  border-radius:1em;
+  
+}
+
+.hours-ir {
+  background: #000;
+  height: 20%;
+  left: 48.75%;
+  position: absolute;
+  top: 30%;
+  transform-origin: 50% 100%;
+  width: 2.5%;
+    -webkit-animation: rotation 43200s infinite linear;
+  -moz-animation: rotation 43200s infinite linear;
+  -o-animation: rotation 43200s infinite linear;
+  animation: rotation 43200s infinite linear;
+  border:0.5px solid white;
+  border-radius:1em;
+}
+
+
+.seconds { 
+  background: #000; 
+  height: 45%; 
+  left: 49.5%; 
+  position: absolute; 
+  top: 14%; 
+  transform-origin: 50% 80%; 
+  width: 1%; 
+  z-index: 8;
+-webkit-animation: rotation 60s infinite linear;
+  -moz-animation: rotation 60s infinite linear;
+  animation: rotation 60s infinite linear;
+
+
+ }
+
+.minutes {
+  background: #000;
+  height: 40%;
+  left: 48%;
+  position: absolute;
+  top: 10%;
+  transform-origin: 50% 100%;
+  width: 2%;
+  border:0.5px solid white;
+  border-radius:1em;
+   -webkit-animation: rotation 3600s infinite linear;
+  -moz-animation: rotation 3600s infinite linear;
+  -o-animation: rotation 3600s infinite linear;
+  animation: rotation 3600s infinite linear;
+}
+
+
+
+h1 {
+  
+  font-family: 'Architects Daughter',Arial,sans-serif;
+  margin: 0;
+
+}
+
+.city {
+  
+  
+  margin-bottom: 20px;
+  padding: auto;
+  text-align:center;
+  border-radius:5%;
+box-shadow: inset 0px 0px 5px 2px rgba(119, 119, 119, 0.88);
+-moz-box-shadow: inset 0px 0px 5px 2px rgba(119, 119, 119, 0.88);
+-webkit-box-shadow: inset 0px 0px 5px 2px rgba(119, 119, 119, 0.88);
+}
+
+  
+
+.btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 5px 20px 5px 20px;
+  border: solid #1f628d 2px;
+  text-decoration: none;
+  margin: 0 auto;
+   padding: auto;
+}
+
+.btn:hover {
+  background: #fc3c3c;
+  background-image: -webkit-linear-gradient(top, #fc3c3c, #d93434);
+  background-image: -moz-linear-gradient(top, #fc3c3c, #d93434);
+  background-image: -ms-linear-gradient(top, #fc3c3c, #d93434);
+  background-image: -o-linear-gradient(top, #fc3c3c, #d93434);
+  background-image: linear-gradient(to bottom, #fc3c3c, #d93434);
+  text-decoration: none;
+}
+
+.main {
+  margin: 0 auto;
+   padding: auto;
+  border: 1px solid red;
+  text-align:center;
+}
