@@ -32,36 +32,23 @@
   to { -moz-transform: rotate(360deg); }
 }
 
-@-o-keyframes rotation {
-  from { -o-transform: rotate(0deg); }    
-  to { -o-transform: rotate(360deg); }
-}
-
 @keyframes rotation {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
 
-
-
-
-@-webkit-keyframes rotationz {
+@-webkit-keyframes rotationback {
   from { -webkit-transform: rotate(0deg); }    
   to { -webkit-transform: rotate(-360deg); }
 }
 
-@-moz-keyframes rotationz {
+@-moz-keyframes rotationback {
   from { -moz-transform: rotate(0deg); }    
   to { -moz-transform: rotate(-360deg); }
 }
 
-@-o-keyframes rotationz {
-  from { -o-transform: rotate(0deg); }    
-  to { -o-transform: rotate(-360deg); }
-}
-
-@keyframes rotationz {
+@keyframes rotationback {
   from { transform: rotate(0deg); }
   to { transform: rotate(-360deg); }
 }
